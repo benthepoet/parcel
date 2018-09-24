@@ -62,8 +62,8 @@ class HMRServer {
       });
     }
 
-    const shouldReload = assets.some(asset => asset.forceReload);
-    if (shouldReload) {
+    const containsHtmlAsset = assets.some(asset => asset.type === 'html');
+    if (containsHtmlAsset) {
       this.broadcast({
         type: 'reload'
       });
